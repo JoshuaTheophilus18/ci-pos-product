@@ -8,10 +8,22 @@ echo $this->section('content');
 ?>
 
 <div class="container">
-    <h1 class="mt-2"> <?php echo esc($headerTitle); ?></h1>
-    <p>
-        <?php echo anchor('products/add', 'Tambah Barang', ['class' => 'btn btn-sm btn-success']); ?>
-    </p>
+    <div class="row">
+        <div class="col-sm-6">
+            <h1 class="mt-2"> <?php echo esc($headerTitle); ?></h1>  
+        </div>
+        <div class="col-sm-6">
+            <p style="float: right; margin-top: 25px"> 
+                <?php echo anchor('products/add', 'Tambah Barang', ['class' => 'btn btn-sm btn-success']); ?>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <p><?= $this->include('Views\search_bar'); ?></p>
+        </div>
+        <div class="col-sm-6"></div>
+    </div>
     <div class="row">
         <div class="col">
             <table class="table table-bordered table-striped">

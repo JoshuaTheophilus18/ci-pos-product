@@ -18,7 +18,14 @@ class ProductController extends BaseController
     public function index()
     {
         // $product = $this->productModel->findAll();
-        $product = $this->productModel->asObject();
+        $product = $this->productModel;
+
+        if ($this->request->getGet("search")) {
+            $product = $product->like('name', $this->request->getGet("search"), "both");
+        }
+        
+        $product = $product->asObject();
+        
         $data = [
             'headerTitle' => 'Daftar Barang',
             'product' => $product->paginate(10, "product"),
