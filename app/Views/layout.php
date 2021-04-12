@@ -24,7 +24,7 @@
                     <a class="nav-link" href="<?= base_url('recycle') ?>">Recycle Bin</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('about') ?>">About</a>
+                    <a class="nav-link" href="<?= base_url() ?>">Dashboard </a>
                 </li>
             </ul>
             <h4>APIKASI POS SEDERHANA</h4>

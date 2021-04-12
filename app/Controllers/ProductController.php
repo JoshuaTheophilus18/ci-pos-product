@@ -17,10 +17,13 @@ class ProductController extends BaseController
 
     public function index()
     {
-        $product = $this->productModel->findAll();
+        // $product = $this->productModel->findAll();
+        $product = $this->productModel->asObject();
         $data = [
             'headerTitle' => 'Daftar Barang',
-            'product' => $product,
+            'product' => $product->paginate(10, "product"),
+            'pager' => $product->pager,
+            'nomor' => nomor($this->request->getVar('page_product'), 10),
         ];
 
         return view('products/index', $data);
@@ -28,10 +31,13 @@ class ProductController extends BaseController
 
     public function indexRecycle()
     {
-        $product = $this->productModel->onlyDeleted()->findAll();
+        // $product = $this->productModel->onlyDeleted()->findAll();
+        $product = $this->productModel->onlyDeleted()->asObject();
         $data = [
             'headerTitle' => 'Daftar Barang Non Aktif',
-            'product' => $product,
+            'product' => $product->paginate(10, "activate"),
+            'pager' => $product->pager,
+            'nomor' => nomor($this->request->getVar('page_activate'), 10),
         ];
 
         return view('products/activated', $data);
