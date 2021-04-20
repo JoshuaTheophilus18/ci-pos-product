@@ -29,11 +29,11 @@ echo $this->section('content');
                         <?php foreach ($product as $item) : ?>
                             <tr>
                                 <td style="text-align: center;"><?= $nomor++ ?></td>
-                                <td><?= $item->name //$item['name'] ?></td>
-                                <td><?= $item->qty //$item['qty'] ?></td>
-                                <td><?= $item->purchase_price //$item['purchase_price'] ?></td>
-                                <td><?= $item->selling_price //$item['selling_price'] ?></td>
-                                <td><?= $item->description //$item['description'] ?></td>
+                                <td><?= $item->name ?></td>
+                                <td><?= $item->qty ?></td>
+                                <td><?= $item->purchase_price ?></td>
+                                <td><?= $item->selling_price ?></td>
+                                <td><?= $item->description ?></td>
                                 <td style="text-align: center;">
                                     <?php echo anchor(sprintf('products/activate/%d', $item->id), 'Aktifkan', ['onclick' => 'return confirm(\'Apakah yakin ingin mengaktifkan barang?\')', 'class' => 'btn btn-sm btn-success']); ?>
                                 </td>

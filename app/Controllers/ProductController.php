@@ -17,7 +17,6 @@ class ProductController extends BaseController
 
     public function index()
     {
-        // $product = $this->productModel->findAll();
         $product = $this->productModel;
 
         if ($this->request->getGet("search")) {
@@ -38,7 +37,6 @@ class ProductController extends BaseController
 
     public function indexRecycle()
     {
-        // $product = $this->productModel->onlyDeleted()->findAll();
         $product = $this->productModel->onlyDeleted()->asObject();
         $data = [
             'headerTitle' => 'Daftar Barang Non Aktif',
