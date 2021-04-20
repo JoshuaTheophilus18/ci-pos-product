@@ -31,7 +31,7 @@ class LoginController extends BaseController
                         'logged_in' => true,
                     ]
                 );
-                return redirect()->to('/');
+                return redirect()->to('/dashboard');
             } else {
                 session()->setFlashdata('error', 'Username & Password Salah');
                 return redirect()->back();

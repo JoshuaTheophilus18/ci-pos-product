@@ -43,7 +43,7 @@ $routes->post('/login/process', 'LoginController::process');
 $routes->get('/logout', 'LoginController::logout');
 
 $routes->group('', ['filter' => 'cekLogin'], function ($routes) {
-    $routes->get('/', 'DashboardController::index');
+    $routes->get('/dashboard', 'DashboardController::index');
     //RECYCLE//
     $routes->get('/recycle', 'ProductController::indexRecycle');
 

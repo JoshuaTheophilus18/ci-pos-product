@@ -10,3 +10,11 @@ if (!function_exists('nomor')) {
         return $nomor;
     }
 }
+
+function mark_nav_active($uri, $currentURL = null, $class = 'active') {
+    if (is_null($currentURL)) {
+        $currentURL = current_url();
+    }
+
+    return !empty(strpos($currentURL, $uri)) ? $class : '';
+}

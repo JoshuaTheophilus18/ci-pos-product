@@ -17,13 +17,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url() ?>">Dashboard </a>
+                <li class="nav-item <?= mark_nav_active('dashboard'); ?>">
+                    <a class="nav-link" href="<?= base_url('dashboard') ?>">Dashboard </a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item <?= mark_nav_active('products'); ?>">
                     <a class="nav-link" href="<?= base_url('products') ?>">Products<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item <?= mark_nav_active('recycle'); ?>">
                     <a class="nav-link" href="<?= base_url('recycle') ?>">Recycle Bin</a>
                 </li>
                 <li class="nav-item">
