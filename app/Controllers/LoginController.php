@@ -7,15 +7,28 @@ use App\Models\User;
 
 class LoginController extends BaseController
 {
+    /**
+     * Constructor
+     */
     public function __construct() {
         $this->model = new User;
     }
 
+    /**
+     * Display Login Page
+     *
+     * @return void
+     */
     public function index()
     {
         return view('login');
     }
 
+    /**
+     * Authenticate Current User Login
+     *
+     * @return void
+     */
     public function process()
     {
         $username = $this->request->getVar('username');
@@ -42,6 +55,11 @@ class LoginController extends BaseController
         }
     }
 
+    /**
+     * Logout Function
+     *
+     * @return void
+     */
     function logout()
     {
         session()->destroy();

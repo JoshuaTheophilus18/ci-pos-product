@@ -9,12 +9,20 @@ class ProductController extends BaseController
 {
     protected $productModel;
 
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         $this->productModel = new Product();
         helper('form');
     }
 
+    /**
+     * Display Product Page
+     *
+     * @return void
+     */
     public function index()
     {
         $product = $this->productModel;
@@ -35,6 +43,11 @@ class ProductController extends BaseController
         return view('products/index', $data);
     }
 
+    /**
+     * Display Recycle Bin Page
+     *
+     * @return void
+     */
     public function indexRecycle()
     {
         $product = $this->productModel->onlyDeleted()->asObject();
@@ -48,6 +61,11 @@ class ProductController extends BaseController
         return view('products/activated', $data);
     }
 
+    /**
+     * Redirect To Product Create Page
+     *
+     * @return void
+     */
     public function create()
     {
         $data = [
@@ -56,6 +74,11 @@ class ProductController extends BaseController
         return view('products/add', $data);
     }
 
+    /**
+     * Store new Products to DB
+     *
+     * @return void
+     */
     public function store()
     {
         $data = $this->request->getPost();
@@ -72,6 +95,12 @@ class ProductController extends BaseController
         ]);
     }
 
+    /**
+     * Redirect to Product Edit page
+     *
+     * @param int $id
+     * @return void
+     */
     public function edit($id)
     {
         $model = $this->productModel->find($id);
@@ -82,6 +111,12 @@ class ProductController extends BaseController
         return view('products/add', $data);
     }
 
+    /**
+     * Update Product Data
+     *
+     * @param int $id
+     * @return void
+     */
     public function update($id)
     {
         $data = $this->request->getPost();
@@ -103,6 +138,12 @@ class ProductController extends BaseController
         }
     }
 
+    /**
+     * Delete Product
+     *
+     * @param int $id
+     * @return void
+     */
     public function delete($id)
     {
         $delete = $this->productModel->delete($id);
@@ -113,6 +154,12 @@ class ProductController extends BaseController
         }
     }
 
+    /**
+     * Restore / Reactivate Deleted Product
+     *
+     * @param [type] $id
+     * @return void
+     */
     public function activate($id)
     {
         $query = "UPDATE products SET deleted_at = null WHERE id = ".$id;

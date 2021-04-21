@@ -9,12 +9,20 @@ class RegisterController extends BaseController
 {
     protected $model;
 
+    /**
+     * COnstructor
+     */
     public function __construct()
     {
         $this->model = new User();
         helper('form');
     }
 
+    /**
+     * Display register page
+     *
+     * @return void
+     */
     public function index()
     {
         $data = [
@@ -23,6 +31,11 @@ class RegisterController extends BaseController
         return view('register', $data);
     }
 
+    /**
+     * Process Current Register Request
+     *
+     * @return void
+     */
     public function process()
     {
         if (!$this->validate(

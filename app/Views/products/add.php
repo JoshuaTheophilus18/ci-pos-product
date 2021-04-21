@@ -20,25 +20,37 @@ echo $this->section('content');
         }
         
         ?>
-        <div class="form-group">
-            <?= form_label('Nama Barang', 'name') ?>
-            <?= form_input('name', set_value('name', isset($product) ? $product['name'] : ""), ['class' => 'form-control']); ?>
-            <small class="form-text text-danger"> <?= $errors['name'] ?? ''; ?></small>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <?= form_label('Nama Barang', 'name') ?> (<span class="text-danger">*</span>)
+                    <?= form_input('name', set_value('name', isset($product) ? $product['name'] : ""), ['class' => 'form-control']); ?>
+                    <small class="form-text text-danger"> <?= $errors['name'] ?? ''; ?></small>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <?= form_label('Jumlah Barang', 'qty') ?> (<span class="text-danger">*</span>)
+                    <?= form_input('qty', set_value('qty', isset($product) ? $product['qty'] : ""), ['class' => 'form-control'], 'number'); ?>
+                    <small class="form-text text-danger"> <?= $errors['qty'] ?? ''; ?></small>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <?= form_label('Jumlah Barang', 'qty') ?>
-            <?= form_input('qty', set_value('qty', isset($product) ? $product['qty'] : ""), ['class' => 'form-control']); ?>
-            <small class="form-text text-danger"> <?= $errors['qty'] ?? ''; ?></small>
-        </div>
-        <div class="form-group">
-            <?= form_label('Harga Beli', 'purchase_price') ?>
-            <?= form_input('purchase_price', set_value('purchase_price', isset($product) ? $product['purchase_price'] : ""), ['class' => 'form-control']); ?>
-            <small class="form-text text-danger"> <?= $errors['purchase_price'] ?? ''; ?></small>
-        </div>
-        <div class="form-group">
-            <?= form_label('Harga Jual', 'selling_price') ?>
-            <?= form_input('selling_price', set_value('selling_price', isset($product) ? $product['selling_price'] : ""), ['class' => 'form-control']); ?>
-            <small class="form-text text-danger"> <?= $errors['selling_price'] ?? ''; ?></small>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <?= form_label('Harga Beli', 'purchase_price') ?> (<span class="text-danger">*</span>)
+                    <?= form_input('purchase_price', set_value('purchase_price', isset($product) ? $product['purchase_price'] : ""), ['class' => 'form-control'], 'number'); ?>
+                    <small class="form-text text-danger"> <?= $errors['purchase_price'] ?? ''; ?></small>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <?= form_label('Harga Jual', 'selling_price') ?> (<span class="text-danger">*</span>)
+                    <?= form_input('selling_price', set_value('selling_price', isset($product) ? $product['selling_price'] : ""), ['class' => 'form-control'], 'number'); ?>
+                    <small class="form-text text-danger"> <?= $errors['selling_price'] ?? ''; ?></small>
+                </div>
+            </div>
         </div>
         <div class="form-group">
             <?= form_label('Deskripsi Barang', 'description'); ?>

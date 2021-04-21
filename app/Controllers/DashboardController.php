@@ -6,6 +6,11 @@ use App\Controllers\BaseController;
 
 class DashboardController extends BaseController
 {
+    /**
+     * Display Dashboard
+     *
+     * @return void
+     */
     public function index()
     {
         $data = [
