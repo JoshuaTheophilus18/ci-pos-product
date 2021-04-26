@@ -31,8 +31,8 @@ echo $this->section('content');
                                 <td style="text-align: center;"><?= $nomor++ ?></td>
                                 <td><?= $item->name ?></td>
                                 <td><?= $item->qty ?></td>
-                                <td><?= $item->purchase_price ?></td>
-                                <td><?= $item->selling_price ?></td>
+                                <td><?= number_to_currency($item->purchase_price, 'IDR'); ?></td>
+                                <td><?= number_to_currency($item->selling_price, 'IDR'); ?></td>
                                 <td><?= $item->description ?></td>
                                 <td style="text-align: center;">
                                     <?php echo anchor(sprintf('products/activate/%d', $item->id), 'Aktifkan', ['onclick' => 'return confirm(\'Apakah yakin ingin mengaktifkan barang?\')', 'class' => 'btn btn-sm btn-success']); ?>

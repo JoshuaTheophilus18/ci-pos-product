@@ -43,9 +43,16 @@ $routes->post('/login/process', 'LoginController::process');
 $routes->get('/logout', 'LoginController::logout');
 
 $routes->group('', ['filter' => 'cekLogin'], function ($routes) {
+    //DASHBOARD//
     $routes->get('/dashboard', 'DashboardController::index');
+
     //RECYCLE//
     $routes->get('/recycle', 'ProductController::indexRecycle');
+
+    //INVOICE//
+    $routes->get('/invoice', 'InvoiceController::index');
+    $routes->get('/invoice/add', 'InvoiceController::create');
+    $routes->post('/invoice/add', 'InvoiceController::store');
 
     //PRODUCTS//
     $routes->get('/products', 'ProductController::index');

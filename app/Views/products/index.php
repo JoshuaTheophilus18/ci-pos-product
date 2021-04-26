@@ -44,11 +44,11 @@ echo $this->section('content');
                         <?php foreach ($product as $item) : ?>
                             <tr>
                                 <td style="text-align: center;"><?= $nomor++ ?></td>
-                                <td><?= $item->name //$item['name'] ?></td>
-                                <td><?= $item->qty //$item['qty'] ?></td>
-                                <td><?= $item->purchase_price //$item['purchase_price'] ?></td>
-                                <td><?= $item->selling_price //$item['selling_price'] ?></td>
-                                <td><?= $item->description //$item['description'] ?></td>
+                                <td><?= $item->name ?></td>
+                                <td><?= $item->qty ?></td>
+                                <td><?= number_to_currency($item->purchase_price, 'IDR'); ?></td>
+                                <td><?= number_to_currency($item->selling_price, 'IDR'); ?></td>
+                                <td><?= $item->description ?></td>
                                 <td style="text-align: center;">
                                     <?php echo anchor(sprintf('products/edit/%d', $item->id), 'Ubah', ['class' => 'btn btn-sm btn-success']); ?>
                                     <?php echo anchor(sprintf('products/delete/%d', $item->id), 'Hapus', ['onclick' => 'return confirm(\'Apakah yakin ingin menghapus barang?\')', 'class' => 'btn btn-sm btn-danger']); ?>
@@ -68,6 +68,16 @@ echo $this->section('content');
     </div>
 </div>
 
+<?php
+echo $this->endSection();
+
+echo $this->section('js');
+?>
+<script type="text/javascript">
+    function formatPrice(number) {
+        return 'Rp ' + number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+</script>
 <?php
 echo $this->endSection();
 ?>
